@@ -86,9 +86,9 @@ func NewRecorder() Recorder {
 		benchmark := viper.GetString(fcom.BenchmarkDirPath)
 		url := viper.GetString(fcom.InfluxDBUrlPath)
 		db := viper.GetString(fcom.InfluxDBDatabasePath)
-		uname := viper.GetString(fcom.InfluxDBUsernamePath)
-		pwd := viper.GetString(fcom.InfluxDBPasswordPath)
-		influxDB, err := newInfluxdb(benchmark, url, db, uname, pwd)
+		token := viper.GetString("recorder.influxdb.token")
+		orgId := viper.GetString("recorder.influxdb.org")
+		influxDB, err := newInfluxdb(benchmark, url, db, token, orgId)
 		if err == nil {
 			ps = append(ps, influxDB)
 		} else {
@@ -193,7 +193,7 @@ func (p *logProcessor) processStatistic(sd *fcom.RemoteStatistic) {
 func (p *logProcessor) logTitle() {
 
 	p.logger.Notice("     \tview\t    \t|\t    \t    \trate\t(/s)\t    \t|\t\tlatency\t(ms)")
-	p.logger.Notice("state\tnum \tdu(s)\t|\tsend\tsucc\tfail\tconf\tunkn\t|\tsend\tconf\twrit")
+	p.logger.Notice("state\tnum \tdur(s)\t|\tsend\tsuccess\tfailure\tconfirm\tunknown\t|\tsend\tconfirm\twrite")
 }
 
 func (p *logProcessor) logData(t string, data *fcom.Data) {

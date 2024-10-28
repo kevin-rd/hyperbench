@@ -43,7 +43,7 @@ func InitPlugin() {
 
 	p, err := plugin.Open(filePath)
 	if err != nil {
-		log.Errorf("plugin failed: %v", err)
+		log.Panicf("plugin failed: %v", err)
 	}
 	plugins = p
 }

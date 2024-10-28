@@ -31,7 +31,7 @@ all: build
 ## build: build the binary with pre-packed static resource
 build: dep assets
 	@export GOPROXY=https://goproxy.cn,direct
-	@packr2 build -o $(BINARY_NAME) -trimpath -ldflags "${ldflags}"
+	@go build -o $(BINARY_NAME) -trimpath -ldflags "${ldflags}"
 	@-rm -rf $(ASSETS)
 
 ## pack: build the binary with local static resource
@@ -62,7 +62,7 @@ assets:
 .PHONY: dep
 ## dep: install the dependencies outside (may need to use proxy to download some packages)
 dep:
-	@go get -u $(GET)
+	@go get $(GET)
 
 help: Makefile
 	@echo " Choose a command run in "$(PROJECTNAME)":"

@@ -1,5 +1,7 @@
 module github.com/hyperbench/hyperbench
 
+go 1.22.4
+
 require (
 	github.com/gin-gonic/gin v1.7.7
 	github.com/gobuffalo/packr/v2 v2.8.3
@@ -9,7 +11,7 @@ require (
 	github.com/influxdata/tdigest v0.0.1
 	github.com/json-iterator/go v1.1.12
 	github.com/mholt/archiver/v3 v3.5.1
-	github.com/mitchellh/mapstructure v1.4.3
+	github.com/mitchellh/mapstructure v1.5.0
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
 	github.com/pingcap/failpoint v0.0.0-20220423142525-ae43b7f4e5c3
 	github.com/pkg/errors v0.9.1
@@ -24,16 +26,16 @@ require (
 require (
 	github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78 // indirect
 	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible // indirect
-	github.com/Microsoft/go-winio v0.4.14 // indirect
-	github.com/Microsoft/hcsshim v0.8.6 // indirect
+	github.com/Microsoft/go-winio v0.4.15-0.20190919025122-fc70bd9a86b5 // indirect
+	github.com/Microsoft/hcsshim v0.8.7-0.20191101173118-65519b62243c // indirect
 	github.com/Shopify/sarama v1.26.1 // indirect
 	github.com/andybalholm/brotli v1.0.1 // indirect
-	github.com/containerd/continuity v0.0.0-20181203112020-004b46473808 // indirect
+	github.com/containerd/containerd v1.3.0-beta.2.0.20190828155532-0293cbd26c69 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/deepmap/oapi-codegen v1.8.2 // indirect
 	github.com/docker/distribution v2.7.1+incompatible // indirect
-	github.com/docker/docker v1.4.2-0.20190710153559-aa8249ae1b8b // indirect
+	github.com/docker/docker v1.4.2-0.20191101170500-ac7306503d23 // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
 	github.com/dsnet/compress v0.0.2-0.20210315054119-f66993602bf5 // indirect
@@ -48,7 +50,7 @@ require (
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
-	github.com/grpc-ecosystem/go-grpc-middleware v1.1.0 // indirect
+	github.com/grpc-ecosystem/go-grpc-middleware v1.2.2 // indirect
 	github.com/hashicorp/go-version v1.2.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/hyperledger/fabric-amcl v0.0.0-20190902191507-f66264322317 // indirect
@@ -109,9 +111,6 @@ require (
 
 replace golang.org/x/crypto => golang.org/x/crypto v0.0.0-20210921155107-089bfa567519
 
-replace golang.org/x/sys => github.com/golang/sys v0.0.0-20220722155257-8c9f86f7a55f
+replace golang.org/x/sys => github.com/golang/sys v0.26.0
 
 replace google.golang.org/grpc => google.golang.org/grpc v1.29.1
-
-
-go 1.17

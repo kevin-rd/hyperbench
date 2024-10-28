@@ -23,7 +23,6 @@ package recorder
 
 import (
 	"context"
-	"fmt"
 	fcom "github.com/hyperbench/hyperbench-common/common"
 	influxdb2 "github.com/influxdata/influxdb-client-go/v2"
 	"github.com/influxdata/influxdb-client-go/v2/api"
@@ -34,8 +33,8 @@ import (
 type influxdb struct {
 	url       string
 	database  string
-	username  string
-	password  string
+	token     string
+	orgId     string
 	benchmark string
 
 	writer api.WriteAPI
@@ -107,7 +106,7 @@ func (i *influxdb) release() {
 	i.client.Close()
 }
 
-func newInfluxdb(benchmark string, URL string, database string, username string, password string) (*influxdb, error) {
+func newInfluxdb(benchmark string, URL string, database string, token string, orgId string) (*influxdb, error) {
 	//u, err := url.Parse(URL)
 	//if err != nil {
 	//	return nil, err
@@ -115,8 +114,8 @@ func newInfluxdb(benchmark string, URL string, database string, username string,
 	i := &influxdb{
 		url:       URL,
 		database:  database,
-		username:  username,
-		password:  password,
+		token:     token,
+		orgId:     orgId,
 		benchmark: benchmark,
 	}
 	err := i.makeClient()
@@ -127,19 +126,13 @@ func newInfluxdb(benchmark string, URL string, database string, username string,
 }
 
 func (i *influxdb) makeClient() (err error) {
-	client := influxdb2.NewClient(i.url, fmt.Sprintf("%s:%s", i.username, i.password))
+	client := influxdb2.NewClient(i.url, i.token)
 	_, err = client.Ping(context.Background())
 	if err != nil {
 		return err
 	}
-	writeAPI := client.WriteAPI("", i.database)
+	writeAPI := client.WriteAPI(i.orgId, i.database)
 	i.writer = writeAPI
 	i.client = client
-	//i.client, err = client.NewClient(client.Config{
-	//	URL:      *i.url,
-	//	Username: i.username,
-	//	Password: i.password,
-	//	Timeout:  30 * time.Second,
-	//})
 	return
 }
