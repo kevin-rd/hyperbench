@@ -1,0 +1,3 @@
+[rpc]
+node = "devint-lcd.mechain.tech"
+port = "80"
