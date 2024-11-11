@@ -1,6 +1,6 @@
 module github.com/hyperbench/hyperbench
 
-go 1.22.4
+go 1.22.5
 
 require (
 	github.com/gin-gonic/gin v1.7.7
@@ -11,7 +11,7 @@ require (
 	github.com/influxdata/tdigest v0.0.1
 	github.com/json-iterator/go v1.1.12
 	github.com/mholt/archiver/v3 v3.5.1
-	github.com/mitchellh/mapstructure v1.5.0
+	github.com/mitchellh/mapstructure v1.4.3
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
 	github.com/pingcap/failpoint v0.0.0-20220423142525-ae43b7f4e5c3
 	github.com/pkg/errors v0.9.1
@@ -100,8 +100,7 @@ require (
 	golang.org/x/term v0.17.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/tools v0.14.0 // indirect
-	gonum.org/v1/gonum v0.12.0 // indirect
-	google.golang.org/genproto v0.0.0-20240227224415-6ceb2ff114de // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240227224415-6ceb2ff114de // indirect
 	google.golang.org/grpc v1.61.1 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/ini.v1 v1.66.2 // indirect
@@ -109,8 +108,8 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace golang.org/x/crypto => golang.org/x/crypto v0.0.0-20210921155107-089bfa567519
-
-replace golang.org/x/sys => github.com/golang/sys v0.26.0
-
-replace google.golang.org/grpc => google.golang.org/grpc v1.63.2
+replace (
+	golang.org/x/crypto => golang.org/x/crypto v0.0.0-20210921155107-089bfa567519
+	golang.org/x/sys => github.com/golang/sys v0.26.0
+	google.golang.org/grpc => google.golang.org/grpc v1.63.2
+)

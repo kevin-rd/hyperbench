@@ -12,14 +12,21 @@ config = "benchmark/ethereum/transfer/eth"          # 区块链SDK配置路径
 plugin = "./eth.so"                                 # 插件路径
 
 [client.options] # 客户端选项
+keypassword = "mc"
 
 [recorder.log]
 dump=false
 dir="./logs"
-level="debug"
+level="info"
 
 [recorder.csv]
 dir="./csv"
+
+[recorder.influxdb]
+url="http://154.223.178.3:8086"
+database="hyperbench"
+token=""
+org=""
 
 [verify]
 enable=true

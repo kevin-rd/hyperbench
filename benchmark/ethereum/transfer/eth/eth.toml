@@ -1,3 +1,3 @@
 [rpc]
-node = "ws://localhost"
+node = "ws://154.223.178.3"
 port = "8546"
